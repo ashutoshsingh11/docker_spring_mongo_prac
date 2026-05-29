@@ -8,7 +8,6 @@ WORKDIR /build
 
 # Copy Maven wrapper + pom first for layer caching
 COPY pom.xml .
-COPY .mvn/ .mvn/
 # If you use the Maven wrapper instead of system Maven, copy it:
 # COPY mvnw .
 
@@ -50,8 +49,8 @@ EXPOSE 8080
 
 # JVM tuning for containers
 ENV JAVA_OPTS="-XX:+UseContainerSupport \
-               -XX:MaxRAMPercentage=75.0 \
-               -XX:InitialRAMPercentage=50.0 \
-               -Djava.security.egd=file:/dev/./urandom"
+    -XX:MaxRAMPercentage=75.0 \
+    -XX:InitialRAMPercentage=50.0 \
+    -Djava.security.egd=file:/dev/./urandom"
 
 ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
