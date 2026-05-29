@@ -1,12 +1,13 @@
 # Spring Boot + MongoDB CRUD API
 
 ## Stack
-| Component    | Version |
-|-------------|---------|
-| Java         | 21 (LTS) |
-| Spring Boot  | 3.4.5 (LTS) |
-| MongoDB      | 7.0 (LTS) |
-| Spring Data MongoDB | 4.x |
+
+| Component           | Version     |
+| ------------------- | ----------- |
+| Java                | 21 (LTS)    |
+| Spring Boot         | 3.4.5 (LTS) |
+| MongoDB             | 7.0 (LTS)   |
+| Spring Data MongoDB | 4.x         |
 
 ---
 
@@ -68,6 +69,7 @@ mvn spring-boot:run
 Base URL: `http://localhost:8080/api/v1/products`
 
 ### Create a Product
+
 ```
 POST /api/v1/products
 Content-Type: application/json
@@ -82,31 +84,37 @@ Content-Type: application/json
 ```
 
 ### Get All Products (paginated)
+
 ```
 GET /api/v1/products?page=0&size=10&sortBy=createdAt&sortDir=desc
 ```
 
 ### Get Product by ID
+
 ```
 GET /api/v1/products/{id}
 ```
 
 ### Get by Category
+
 ```
 GET /api/v1/products/category/Electronics
 ```
 
 ### Search by Name
+
 ```
 GET /api/v1/products/search?name=laptop
 ```
 
 ### Filter by Price Range
+
 ```
 GET /api/v1/products/price-range?min=100&max=500
 ```
 
 ### Update a Product
+
 ```
 PUT /api/v1/products/{id}
 Content-Type: application/json
@@ -121,11 +129,13 @@ Content-Type: application/json
 ```
 
 ### Delete a Product
+
 ```
 DELETE /api/v1/products/{id}
 ```
 
 ### Health Check
+
 ```
 GET /actuator/health
 ```
@@ -146,6 +156,7 @@ All endpoints return a consistent JSON wrapper:
 ```
 
 Validation errors return HTTP 400 with field-level details:
+
 ```json
 {
   "success": false,
